@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <!-- Bootstraping code -->
+        <script src="https://ui5.sap.com/resources/sap-ui-core.js"
+                data-sap-ui-libs="sap.m"
+                data-sap-ui-theme="sap_fiori_3_dark"
+                data-sap-ui-resourceroots='{
+                    "ey.hr.payroll": "./"
+                }'
+                data-sap-ui-bindingSyntax="complex"
+                ></script>
+
+        <script>
+            // start loading Component.js
+            //only testing code for component.js
+            var oCompContainer = new sap.ui.core.ComponentContainer({
+                name: 'ey.hr.payroll'
+            });
+
+            oCompContainer.placeAt("myContent");
+
+        </script>
+
+    </head>
+    <body class="sapUiBody">
+        <div id="myContent"></div>
+    </body>
+</html>

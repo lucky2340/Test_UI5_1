@@ -1,0 +1,31 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+          xmlns:core="sap.ui.core"
+          controllerName="ey.hr.payroll.controller.View2">
+    <Page title="View 2" showNavButton="true" navButtonPress="onBack">
+        <!-- <Button text="Back" icon="sap-icon://arrow-left" press="onBack"/> -->
+        <ObjectHeader title="{PRODUCT_ID}" intro="{DESCRIPTION}" 
+                        number="{PRICE}" numberUnit="{CURRENCY_CODE}" icon="{sap-icon://product}"></ObjectHeader>
+        <!-- Tab Strip -->
+        <IconTabBar>
+            <!-- Tabs -->
+            <items>
+                <IconTabFilter icon="sap-icon://warning" text="More Info">
+                    <core:Fragment type="XML" fragmentName="ey.hr.payroll.fragments.moreInfo" />
+                </IconTabFilter>
+                <IconTabFilter icon="sap-icon://supplier" text="Supplier">
+                    <core:Fragment type="XML" fragmentName="ey.hr.payroll.fragments.supplier" />
+                </IconTabFilter>
+                <IconTabFilter icon="sap-icon://home" text="Cities">
+                    <core:Fragment type="XML" fragmentName="ey.hr.payroll.fragments.cities" />
+                </IconTabFilter>
+            </items>
+        </IconTabBar>
+        <footer>
+            <Toolbar >
+                <ToolbarSpacer ></ToolbarSpacer>
+                <Button text="Save" type="Accept" press="onSave" icon="sap-icon://save" />
+                <Button text="Cancel" class="anubhavdemo" type="Reject" press="onReject" icon="sap-icon://cancel" />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

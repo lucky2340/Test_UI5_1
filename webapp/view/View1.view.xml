@@ -1,0 +1,38 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" 
+          controllerName="ey.hr.payroll.controller.View1">
+    <Page title="View 1">
+        <headerContent>
+            <Button text="Go to Next" icon="sap-icon://arrow-right" press="onNext"/>
+        </headerContent>
+        <content>
+            <SearchField id="idSearch" search="onSearch" liveChange="onSearch"></SearchField>
+            <List id="idList" growing="true" growingThreshold="10" items="{
+                        path: '/ProductSet'
+            }" mode="SingleSelectMaster" delete="onItemDelete" 
+                              selectionChange="onItemSelect">
+                <items>
+                    <ObjectListItem title="{PRODUCT_ID}" intro="{NAME}" 
+                                    number="{PRICE}" numberUnit="{CURRENCY_CODE}"
+                                    icon="sap-icon://product" 
+                    >
+                        <firstStatus>
+                            <ObjectStatus text="{
+                                                    path: 'CATEGORY'
+                                                 }" 
+                                               ></ObjectStatus>
+                        </firstStatus>
+                        <attributes>
+                            <ObjectAttribute text="{SUPPLIER_ID}" title="Supplier ID"></ObjectAttribute>
+                        </attributes>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer ></ToolbarSpacer>
+                <Button icon="sap-icon://save" press="onAddProduct"></Button>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

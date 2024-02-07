@@ -1,0 +1,136 @@
+{
+    "sap.app": {
+        "id": "ey.hr.payroll",
+        "type": "application",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "i18n": "i18n/i18n.properties",
+        "ach": "FIN-ACC-AP",
+        "tags": {
+            "keywords": ["fruits","anubhav","store"]
+        },
+        "dataSources": {
+            "mainService":{
+                "uri": "/sap/opu/odata/sap/ZSAN_ODATA_1_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes":{
+            "desktop": true,
+            "phone": true,
+            "tablet": true
+        },
+        "fullWidth": true,
+        "supportedThemes": [
+            "sap_fiori3",
+            "sap_fiori3_dark"
+        ]
+    },
+    "sap.ui5":{
+        "library": {
+            "css": "style/mycss.css"
+        },
+        "resources": {
+            "css": [{
+                "uri": "style/mycss.css"
+            }]
+        },
+        "dependencies": {
+            "minUI5Version": "1.102.19",
+            "libs": {
+                "sap.m": {"minVersion": "1.102.19"},
+                "sap.ui.layout": {"minVersion": "1.102.19"}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "rootView":{
+            "viewName": "ey.hr.payroll.view.App",
+            "type": "XML",
+            "id": "idRootView"
+        },
+        "routing": {
+            "config":{
+                "viewPath": "ey.hr.payroll.view",
+                "viewType": "XML",
+                "controlId": "idAppCon",
+                "clearControlAggregation": true
+            },
+            "routes":[{
+                "pattern": "",
+                "name": "home",
+                "target":["narendra","modi"]
+            },{
+                "pattern": "fruits/{fruitId}",
+                "name": "detail",
+                "target": ["narendra","putin"]
+            },{
+                "pattern": "vendor/{supplierId}",
+                "name": "supplier",
+                "target": ["narendra","trump"]
+            },{
+                "pattern": "manageProduct",
+                "name": "add",
+                "target": ["narendra","macron"]
+            }],
+            "targets": {
+                "narendra": {
+                    "viewName": "View1",
+                    "viewId": "idView1",
+                    "controlAggregation": "masterPages"
+                },
+                "modi": {
+                    "viewName": "Empty",
+                    "viewId": "idEmpty",
+                    "controlAggregation": "detailPages"
+                },
+                "putin":{
+                    "viewName": "View2",
+                    "viewId": "idView2",
+                    "controlAggregation": "detailPages"
+                },
+                "trump":{
+                    "viewName": "Supplier",
+                    "viewId": "idSupplier",
+                    "controlAggregation": "detailPages"
+                },
+                "macron":{
+                    "viewName": "Add",
+                    "viewId": "idAdd",
+                    "controlAggregation": "detailPages"
+                }
+            }
+        },
+        "models": {
+            "":{
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "dataSource": "mainService",
+                "settings": {
+                    
+                }
+            },
+            "fruit": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "mockdata/fruits.json",
+                "settings": {}
+            },
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleUrl": "i18n/i18n.properties"
+                }
+            }
+        }
+    }
+}

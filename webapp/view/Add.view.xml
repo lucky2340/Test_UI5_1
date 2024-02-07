@@ -1,0 +1,64 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" 
+          xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" controllerName="ey.hr.payroll.controller.Add">
+    <Page title="Manage Product">
+        <content>
+            <f:SimpleForm id="SimpleFormChange354"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Product Data"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="Product Id" />
+				<Input id="idProdId" value="{hunk>/prodData/PRODUCT_ID}" submit="onProductSubmit"/>
+				<Button icon="sap-icon://collections-insight" tooltip="Get Most Expensive Product" press="onLoadExp"></Button>
+				<Label text="Name/Description" />
+				<Input value="{hunk>/prodData/NAME}">
+				</Input>
+				<Input value="{hunk>/prodData/DESCRIPTION}">
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input>
+                <Label text="Supplier Id"></Label>
+                <Input value="{hunk>/prodData/SUPPLIER_ID}" showValueHelp="true" valueHelpRequest="onF4Supplier"></Input>
+                <Text text="{hunk>/prodData/SUPPLIER_NAME}"></Text>
+				<Label text="Price/Currency" />
+				<Input value="{hunk>/prodData/PRICE}">
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input>
+				<Input value="{hunk>/prodData/CURRENCY_CODE}" />
+				<Label text="Category" />
+				<Select id="category" selectedKey="{hunk>/prodData/CATEGORY}">
+					<items>
+						<core:Item text="Notebooks" key="Notebooks"/>
+						<core:Item text="Mice" key="Mice"/>
+						<core:Item text="Projectors" key="Projectors"/>
+					</items>
+				</Select>
+			</f:content>
+		</f:SimpleForm>
+        </content>
+        <footer>
+            <Toolbar >
+                <ToolbarSpacer ></ToolbarSpacer>
+                <Button id="idSave" text="Save" type="Accept" icon="sap-icon://save" press="onSave"></Button>
+				<Button id="idDelete" text="Delete" enabled="false" type="Reject" icon="sap-icon://delete" press="onDelete"></Button>
+                <Button id="idClear" text="Clear" type="Emphasized" icon="sap-icon://cancel" press="onClear"></Button>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
